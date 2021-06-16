@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm bg-dak navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">NSND NĐứcSỹ</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink='/admin'>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='project' href="">Project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="task">Task</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLink='login'>Login</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </li> -->
+    </ul>
+    <div class="boxhinh">
+        <img src="{{img}}" alt="">
+    </div>
+    <div class="username"> <span>{{name}}</span></div>
+
+    <button (click)="logout()" class="out"> <a  href=""> <img src="https://i.gifer.com/origin/13/136a4c21e368f9e41028bf694f67bff4_w200.gif" alt=""></a></button>
+
+
+</nav>

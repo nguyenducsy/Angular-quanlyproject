@@ -1,0 +1,115 @@
+<section>
+    <div class="card">
+        <div class="card-header">
+            <h2>PROJECT</h2>
+        </div>
+        <div class="content">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Project</button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Project ID</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Date of Start</th>
+                        <th scope="col">Team Size</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="posts?.length >= 1 && !isFetching">
+                    <tr *ngFor='let p of posts'>
+                        <th scope="row">{{p.id}}</th>
+                        <td>{{p.name}}</td>
+                        <td>{{p.date}}</td>
+                        <td>{{p.teamsize}}</td>
+                        <td>
+                            <button type="button" (click)="getPro(p.id)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+                            <button class="btn btn-danger" (click)="dele(p.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--form add-->
+                <div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm project</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <!-- <form> -->
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Name</label>
+                                    <input type="text" name="name" class="form-control" [(ngModel)]="project.name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Date of start</label>
+                                    <input type="date" id="birthday" class="form-control" name="birthday" [(ngModel)]="project.date">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Team size</label>
+                                    <input type="number" class="form-control" [(ngModel)]='project.teamsize'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" (click)="clearForm()">Reset</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="addpro()">Add</button>
+                                </div>
+                                <!-- </form> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--form edit-->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Edit project</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <div *ngFor='let p of post'> -->
+                                <!-- <form> -->
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Name</label>
+                                    <input type="text" class="form-control" [(ngModel)]='item.name'>
+                                </div>
+                                <label for="birthday">Birthday:</label>
+                                <input type="date" id="birthday" name="birthday" [(ngModel)]="item.date">
+                                <!-- <input type="submit" (click)="hello()" value="Submit"> -->
+                                <p></p>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Team size</label>
+                                    <input type="number" [(ngModel)]='item.teamsize'>
+                                    <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" (click)="clearForm()">Reset</button>
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="edit()">Edit</button>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                        <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div> -->
+                    </div>
+                </div>
+                <!-- </div> -->
+
+
+
+                <div *ngIf="isFetching">Loading...</div>
+                <div class="alert alert-danger" *ngIf="error">
+                    <h4>Có lỗi xảy ra</h4>
+                    <p>{{error}}</p>
+                </div>
+            </table>
+            <div class="alert alert-danger" *ngIf="isAccess">Chưa xác thực !!</div>
+        </div>
+    </div>
+</section>

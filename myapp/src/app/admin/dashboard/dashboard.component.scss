@@ -1,0 +1,228 @@
+.boxurl {
+    float: left;
+    background-color: rgb(179, 179, 179);
+    margin-left: 20px;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+section {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.boximg {
+    float: left;
+    width: 20px;
+    margin-right: 10px;
+    height: 20px;
+}
+
+.boximg img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.boxcontent {
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+    background-color: #ccccccbd;
+    min-height: 600px;
+}
+
+.boxleft,
+.boxcenter,
+.boxright {
+    float: left;
+    width: 25%;
+}
+
+.boxleft {
+    padding: 10px 20px;
+}
+
+.boxcenter {
+    width: 50%;
+}
+
+.boxright {
+    padding: 10px 20px;
+}
+
+.boxleft nav {
+    width: 100%;
+    text-align: center;
+    float: left;
+    border-radius: 5px;
+}
+
+.boxleft .boxavt {
+    width: 100%;
+    height: 75px;
+    padding: 5px 5px;
+    float: left;
+    text-align: center;
+    background-color: white;
+}
+
+.boxleft .name {
+    width: 100%;
+    height: 25px;
+    font-size: 11pt;
+    margin-bottom: 10px;
+    font-weight: 600;
+    float: left;
+    background-color: white;
+}
+
+.boxleft .boxavt img {
+    width: 22%;
+    border-radius: 50%;
+}
+
+.boxleft ul {
+    width: 100%;
+    float: left;
+    text-align: left;
+    list-style: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.boxleft ul li {
+    float: left;
+    font-size: 10pt;
+    width: 90%;
+    border-bottom: 1px #f0e0e0 solid;
+    padding: 10px 0px;
+    margin-bottom: 5px;
+}
+
+.boxleft ul li span {
+    float: right;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: gray;
+    font-weight: 600;
+}
+
+.boxcenter .btnoption {
+    float: left;
+    margin-bottom: 10px;
+    width: 80px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgb(105, 105, 105);
+}
+
+.boxcenter .btnoption a {
+    color: white;
+    text-align: center;
+}
+
+.boxcenter .year {
+    float: right;
+}
+
+.boxcenter .hd1 {
+    width: 100%;
+    float: left;
+}
+
+.boxcenter .contentmid {
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    float: left;
+    background-color: white;
+}
+
+.boxcenter .contentmid ul {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.boxcenter .contentmid ul li span {
+    float: right;
+}
+
+.boxcenter .contentmid ul li {
+    float: left;
+    width: 72%;
+    height: 50px;
+    font-size: 12pt;
+    text-align: center;
+}
+
+.boxleft nav {
+    width: 100%;
+    float: left;
+    font-size: 13pt;
+    color: white;
+    padding: 5px 0px;
+    background-color: teal;
+}
+
+.contentmid nav {
+    width: 100%;
+    float: left;
+    border-radius: 5px;
+    font-size: 12pt;
+    color: white;
+    padding: 5px 0px;
+    background-color: teal;
+}
+
+.boxright nav {
+    width: 100%;
+    float: left;
+    font-size: 13pt;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 0px;
+    background-color: teal;
+}
+
+.boxright .boxtitle {
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
+    height: 500px;
+    background-color: white;
+}
+
+.boxright .boxtitle .title {
+    padding: 10px 20px;
+    color: white;
+    font-size: 12pt;
+    background-color: gray;
+}
+
+.boxright .boxtitle tbody {
+    width: 100%;
+    float: left;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+.boxright .boxtitle tbody tr {
+    float: left;
+    width: 100%;
+    color: white;
+    padding: 10px 20px;
+    background-color: rgb(218, 153, 55);
+}
+
+.boxright .boxtitle tbody td {
+    float: left;
+    border: 1px rgb(192, 188, 188) solid;
+    width: 100%;
+    padding: 10px 20px;
+}

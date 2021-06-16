@@ -1,0 +1,137 @@
+<section>
+    <div class="card">
+        <div class="card-header">
+            <h2>TASK</h2>
+        </div>
+        <div class="content">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm Task</button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Task Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date of start</th>
+                        <th scope="col">Date of end</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="posts?.length >= 1 && !isFetching">
+                    <tr *ngFor='let p of posts'>
+
+                        <td>{{p.nameTask}}</td>
+                        <td>{{p.nameuser}}</td>
+                        <td style="font-style: italic;color: rgb(83, 84, 85);">{{p.description}}</td>
+                        <td>{{p.date}}</td>
+                        <td>{{p.deadline}}</td>
+                        <td>
+                            <button type="button" (click)="getTask(p.id)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+                            <button class="btn btn-danger" (click)="dele(p.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--form add-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <!-- <form> -->
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Name Task</label>
+                                    <input type="text" name="name" class="form-control" [(ngModel)]="task.nameTask">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Status</label>
+                                    <input list="deadline" class="form-control" name="browser" id="browser" [(ngModel)]="task.description">
+                                    <datalist id="deadline">
+                                                <option value="Hoàn thành">
+                                                <option value="Đang thực hiện">
+                                                <option value="Hủy">
+                                                </datalist>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="birthday" class="col-form-label">Date of start</label>
+                                    <input type="date" id="birthday" class="form-control" name="birthday" [(ngModel)]="task.date">
+                                </div>
+                                <!-- <input type="submit" (click)="hello()" value="Submit"> -->
+                                <div class="mb-3">
+                                    <label for="birthday" class="col-form-label">Date of end</label>
+                                    <input type="date" id="birthday" class="form-control" name="birthday" [(ngModel)]="task.deadline">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" (click)="clearForm()">Reset</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="addtask()">Add</button>
+                                </div>
+                                <!-- </form> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--form edit-->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <div *ngFor='let p of post'> -->
+                                <!-- <form> -->
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Name Task</label>
+                                    <input type="text" name="name" class="form-control" [(ngModel)]="item.nameTask">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Status</label>
+                                    <input list="deadline" class="form-control" name="browser" id="browser" [(ngModel)]="item.description">
+                                    <datalist id="deadline">
+                                                    <option value="Hoàn thành">
+                                                    <option value="Đang thực hiện">
+                                                    <option value="Hủy">
+                                                    </datalist>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="birthday" class="col-form-label">Date of start</label>
+                                    <input type="date" id="birthday" class="form-control" name="birthday" [(ngModel)]="item.date">
+                                </div>
+                                <!-- <input type="submit" (click)="hello()" value="Submit"> -->
+                                <div class="mb-3">
+                                    <label for="birthday" class="col-form-label">Date of end</label>
+                                    <input type="date" id="birthday" class="form-control" name="birthday" [(ngModel)]="item.deadline">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" (click)="clearForm()">Reset</button>
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="edit()">Edit</button>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                        <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div> -->
+                    </div>
+                </div>
+                <!-- </div> -->
+
+
+
+                <div *ngIf="isFetching">Loading...</div>
+                <div class="alert alert-danger" *ngIf="error">
+                    <h4>Có lỗi xảy ra</h4>
+                    <p>{{error}}</p>
+                </div>
+            </table>
+            <div class="alert alert-danger" *ngIf="isAccess">Chưa xác thực !!</div>
+        </div>
+    </div>
+</section>

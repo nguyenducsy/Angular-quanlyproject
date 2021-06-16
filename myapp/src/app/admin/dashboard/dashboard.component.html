@@ -1,0 +1,109 @@
+<section>
+
+    <div class="boxurl">
+        Trang chủ
+    </div>
+
+    <div class="boxcontent">
+        <div class="boxleft">
+            <nav>TRƯỞNG NHÓM</nav>
+            <div class="boxavt">
+                <img src="https://scontent.fsgn10-1.fna.fbcdn.net/v/t1.6435-1/p240x240/152237101_1176143049455436_5560242853441798398_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=7206a8&_nc_ohc=ulS2Tvo2QYAAX-XFN3h&_nc_ht=scontent.fsgn10-1.fna&tp=6&oh=812126c336371760dd58ae8efaa45e02&oe=60CD5692"
+                    alt="">
+            </div>
+            <div class="name">{{profile.name}}</div>
+            <ul>
+                <li>SỐ LƯỢNG THÀNH VIÊN<span>{{(users.length-1)}}</span></li>
+                <li>TỔNG CHI PHÍ CÁC DỰ ÁN <span>${{totals}}</span></li>
+                <li>CÁC TASK ĐANG XỬ LÝ<span>{{task.length}}</span></li>
+                <li>DỰ ÁN SẮP TRIỂN KHAI<span>20%</span></li>
+            </ul>
+            <p>PROJECT</p>
+            <ul>
+                <li *ngFor="let pro of project">{{pro.name}}
+                    <div style="float: right;">{{pro.teamsize}} thành viên</div>
+                </li>
+            </ul>
+        </div>
+        <div class="boxcenter">
+            <!-- <li class="nav-item dropdown"> -->
+            <div class="hd1">
+                <div class="btnoption">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dự án</a>
+                    <!-- <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul> -->
+                    <!-- </li> -->
+                </div>
+                <div class="btnoption year">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">2021</a>
+                    <!-- <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul> -->
+                    <!-- </li> -->
+                </div>
+            </div>
+            <div class="contentmid">
+                <nav>TỔNG THỂ VỀ DỰ ÁN</nav>
+                <ul>
+                    <li>Chi phí dự án<span>$2,113,507.00</span></li>
+                    <li>Hiện tại đã chi<span>$966,507.00</span></li>
+                    <li>Còn lại<span>$52,507.00</span></li>
+                </ul>
+                <nav>Tổng Quan Về Task</nav>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Task</th>
+                            <th scope="col">Hạn chót</th>
+                            <th scope="col">Trạng thái</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let task of task">
+                            <td>{{task.nameTask}}</td>
+                            <td style="color:orangered">{{task.deadline}}</td>
+                            <td style="font-style:italic;">{{task.description}}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="boxright">
+            <nav>THÀNH VIÊN CỦA TEAM</nav>
+            <div class="boxtitle">
+                <div class="title">Người dùng</div>
+                <div class="accordion accordion-flush" id="accordionFlushExample" *ngFor="let u of users">
+                    <div *ngIf="u.typeUser === 0 ">
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header" id="flush-heading1">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' + (u.id)" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <div class="boximg">
+                                        <img src="{{u.img}}" alt="">
+                                    </div>     {{u.name}}          
+                                  </button>
+                            </h2>
+
+                            <div id="flush-collapse{{u.id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">{{u.id}}# <br>
+                                    <p> Email : <code>{{u.email}}</code>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

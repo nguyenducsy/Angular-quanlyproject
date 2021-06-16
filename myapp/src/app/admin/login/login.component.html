@@ -1,0 +1,88 @@
+<!-- <div class="container">
+    <div class="boximg">
+        <img src="https://static.tuoitre.vn/tto/i/s626/2016/03/30/batman-v-superman-dawn-of-justice-1459271757.jpg" alt="">
+    </div>
+</div> -->
+
+<!-- <body> -->
+<!-- JQUERY AND NORMALIZED CSS INSTALLED
+View settings for more info. -->
+
+
+<div id="formContainer">
+
+    <div class="formLeft">
+        <img src="https://billboardvn.vn/wp-content/uploads/2021/05/D1-1.jpg">
+    </div>
+    <div class="formRight">
+
+        <!-- Login form -->
+        <form [formGroup]='loginForm' id="login" (ngSubmit)="login()" id="login">
+            <header>
+                <h1>Login</h1>
+                <p>Login to continue</p>
+            </header>
+            <section>
+                <label>
+					<p>Username</p>
+					<input type="text"  placeholder=" "  formControlName="username" required minlength = "23">
+                    <div class="border"></div>
+                    
+                    <!-- <span *ngIf="loginForm.get('username')?.valid && loginForm.get('username')?.touched &&  loginForm.get('username')?.pristine" class="erro">*Hãy nhập vào!!</span> -->
+                    <span *ngIf="loginForm.get('username')?.errors?.rong " class="erro">{{loginForm.get('username')?.errors?.rong.value}} Hãy nhập vào!!</span>
+                    <span class="erro" *ngIf="loginForm.get('username')?.valid ">Tên quá dài!</span>
+                    <span *ngIf="loginForm.get('username')?.errors?.forbiddenName " class="erro">*{{loginForm.get('username')?.errors?.forbiddenName.value}} tên không hợp lệ!</span>
+                    <span *ngIf="loginForm.get('username')?.errors?.hangcamName " class="erro">*{{loginForm.get('username')?.errors?.hangcamName.value}} bị cấm!</span>
+
+        
+				</label>
+                <label>
+					<p>Password</p>
+					<input type="password" placeholder=" "  formControlName="pass">
+					<div class="border"></div>
+				</label>
+                <button type="submit" [disabled]='loginForm.valid'>Login</button>
+            </section>
+            <footer>
+                <button type="button" class="forgotBtn">Forgot password?</button>
+                <button type="button" class="registerBtn">   <a class="nav-link" href="admin/register">Need an account?</a></button>
+            </footer>
+        </form>
+
+        <!-- Register form -->
+        <!-- <form id="register" class="otherForm">
+            <header>
+                <h1>Become a Bro</h1>
+                <p>Register to gain full access</p>
+            </header>
+            <section>
+                <label>
+					<p>Username</p>
+					<input type="text" placeholder=" ">
+					<div class="border"></div>
+				</label>
+                <label>
+					<p>Email</p>
+					<input type="email" placeholder=" ">
+					<div class="border"></div>
+				</label>
+                <label>
+					<p>Password</p>
+					<input type="password" placeholder=" ">
+					<div class="border"></div>
+				</label>
+                <label>
+					<p>Repeat Password</p>
+					<input type="password" placeholder=" ">
+					<div class="border"></div>
+				</label>
+                <button type="submit">Register</button>
+            </section>
+            <footer>
+                <button type="button" class="registerBtn">Back</button>
+            </footer>
+        </form> -->
+    </div>
+
+</div>
+<!-- </body> -->
